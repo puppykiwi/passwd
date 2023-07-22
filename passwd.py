@@ -40,3 +40,11 @@ def generatePassword(length, chars):
         password += random.choice(chars)
     return password
 
+def main():
+    print ("*** Welcome to the password generator ***")
+    print ("This program will generate a password based on your selection")
+    print ()
+    length, chars = getParams()
+    password = generatePassword(length, chars)
+    print ("Your password is: " + password)
+
