@@ -48,3 +48,5 @@ def main():
     password = generatePassword(length, chars)
     print ("Your password is: " + password)
 
+if __name__ == "__main__":
+    main()
