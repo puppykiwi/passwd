@@ -32,7 +32,11 @@ def getParams():
         print ("Invalid selection, please try again")
         getParams()
     
-    print (chars)
     return length, chars
 
-getParams()
+def generatePassword(length, chars):
+    password = ""
+    for i in range(length):
+        password += random.choice(chars)
+    return password
+
