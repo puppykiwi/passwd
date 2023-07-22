@@ -6,8 +6,13 @@ import string
 import sys
 import time
 
+# initialize the variables
+length = 0
+chars = ""
+password = ""
+
 # get the parameter(length and chars) from the user
-def getParams():
+def getParams(length, chars):
     print ("Please select the level of security you would like :")
     print ("1. Basic (length = [8 chars] letters)")
     print ("2. Standard (length = [10 chars] letters and numbers)")
@@ -34,8 +39,7 @@ def getParams():
     
     return length, chars
 
-def generatePassword(length, chars):
-    password = ""
+def generatePassword(length, chars, password):
     for i in range(length):
         password += random.choice(chars)
     return password
@@ -44,8 +48,8 @@ def main():
     print ("*** Welcome to the password generator ***")
     print ("This program will generate a password based on your selection")
     print ()
-    length, chars = getParams()
-    password = generatePassword(length, chars)
+    getParams(length, chars)
+    generatePassword(length, chars, password)
     print ("Your password is: " + password)
 
 if __name__ == "__main__":
