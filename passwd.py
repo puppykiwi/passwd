@@ -1,30 +1,22 @@
 #!/usr/bin/python
-# This script is used to generate a password from a select parameter
+# This script is used to generate a password depending on the selected level of security
 
 import random
 import string
-import sys
-import time
 
-# initialize the variables
-length = 0
-chars = ""
-password = ""
-
-# get the parameter(length and chars) from the user
-def getParams(length, chars):
+# Get the parameter(length and chars) from the user
+def getParams() -> tuple[int, str]:
     print ("Please select the level of security you would like :")
-    print ("1. Basic (length = [8 chars] letters)")
+    print ("1. Simple (length = [8 chars] letters)")
     print ("2. Standard (length = [10 chars] letters and numbers)")
-    print ("3. Fort Knox (length = [15 chars] letters, numbers and symbols)")
-    print ()
+    print ("3. Fort Knox🔒 (length = [15 chars] letters, numbers and symbols)\n")
 
     selection = input("Please enter your selection: ")
     
     if selection == "1":
         length = 8
         chars = string.ascii_letters
-        print ("You have selected Basic")
+        print ("You have selected Simple")
     elif selection == "2":
         length = 10
         chars = string.ascii_letters + string.digits
@@ -35,22 +27,21 @@ def getParams(length, chars):
         print ("You have selected Fort Knox")
     else:
         print ("Invalid selection, please try again")
-        getParams()
+        return getParams()
     
     return length, chars
 
-def generatePassword(length, chars, password):
-    for i in range(length):
+def generatePassword(length: int, chars: str) -> str:
+    password = ""
+    for _ in range(length):
         password += random.choice(chars)
     return password
 
 def main():
-    print ("*** Welcome to the password generator ***")
-    print ("This program will generate a password based on your selection")
-    print ()
-    getParams(length, chars)
-    generatePassword(length, chars, password)
-    print ("Your password is: " + password)
+    print ("*** Welcome to the PuppyKiwi Password Generator ***")
+    print ("This script will generate a password based on your selected level of security")
+    print ("Your password is: " + generatePassword(*getParams()))
+    print ("Stay safe")
 
 if __name__ == "__main__":
     main()
