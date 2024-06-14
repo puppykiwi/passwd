@@ -57,10 +57,12 @@ std::string gen_passwd(int length){
     
     // std::cout  << dist(gen); //debug
     // std::cout  << dist(gen); //debug
+
     for (int i =0; i < length; i++){
 
-        char c = dist(gen);
-        std::cout << i;
+        int num = dist(gen);
+        char c = num;
+        // std::cout << i; //debug
         passwd += c;
 
     }
