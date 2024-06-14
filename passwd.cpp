@@ -46,8 +46,35 @@ int get_length() {
     }
 }
 
+std::string gen_passwd(int length){
+    std::string passwd = "";
+    int max = 126;
+    int min = 33;
+
+    std::random_device rdev;
+    std::mt19937 gen(rdev());
+    std::uniform_int_distribution<int> dist(min, max);
+    
+    // std::cout  << dist(gen); //debug
+    // std::cout  << dist(gen); //debug
+    for (int i =0; i < length; i++){
+
+        char c = dist(gen);
+        std::cout << i;
+        passwd += c;
+
+    }
+
+    
+    
+    return passwd;
+}
+
 int main(){
     
     int length = get_length();
+    std::string passwd = gen_passwd(length);
+    std::cout << "Your passwd, sir: " << passwd << std::endl;
+
     
 }
