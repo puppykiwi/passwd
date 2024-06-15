@@ -56,6 +56,7 @@ std::string gen_passwd(int length){
     std::uniform_int_distribution<int> dist(min, max);
     
     // std::cout  << dist(gen); //debug
+    
     // std::cout  << dist(gen); //debug
 
     for (int i =0; i < length; i++){
